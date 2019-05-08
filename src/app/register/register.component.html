@@ -1,0 +1,81 @@
+<div>
+  <mat-card class="login-card">
+    <form [formGroup]="form" (submit)="submitRegistration($event)">
+      <mat-card-header>
+        <mat-card-title>User Registration</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field appearance="outline">
+          <mat-label>Firstname</mat-label>
+          <input
+            matInput
+            formControlName="firstname"
+            placeholder="Type firstname"
+          />
+          <mat-error *ngIf="form.controls.firstname.errors?.required"
+            >This field is required.</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Lastname</mat-label>
+          <input
+            matInput
+            formControlName="lastname"
+            placeholder="Type lastname"
+          />
+          <mat-error *ngIf="form.controls.lastname.errors?.required"
+            >This field is required.</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" placeholder="Type email" />
+          <mat-error *ngIf="form.controls.email.errors?.required"
+            >This field is required.</mat-error
+          >
+          <mat-error *ngIf="form.controls.email.errors?.email"
+            >Invalid email format.</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            type="password"
+            matInput
+            formControlName="password"
+            placeholder="Type password"
+          />
+          <mat-error *ngIf="form.controls.email.errors?.required"
+            >This field is required.</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Verify password</mat-label>
+          <input
+            type="password"
+            matInput
+            formControlName="verifyPassword"
+            placeholder="Type same password"
+          />
+          <mat-error *ngIf="form.controls.verifyPassword.errors?.mismatch"
+            >Password Mismatch.</mat-error
+          >
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          type="submit"
+          mat-raised-button
+          class="submitBtn"
+          color="primary"
+          [disabled]="form.invalid"
+        >
+          submit
+        </button>
+        <button type="button" mat-raised-button (click)="clearForm()">
+          Clear
+        </button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>

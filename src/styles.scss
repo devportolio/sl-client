@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+app-login,
+app-register {
+  margin: auto;
+}
+
+router-outlet + * {
+  padding: 10px;
+  width: 100vw;
+}
